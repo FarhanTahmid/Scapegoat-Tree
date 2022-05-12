@@ -1,16 +1,15 @@
 #ifndef DATASTRUCTURE_H_INCLUDED
 #define DATASTRUCTURE_H_INCLUDED
 #include "TreeNode.cpp"
-template <class ItemType>
+template <typename ItemType>
+
 class DataStructure
 {
-private:
-    ItemType data;
-    TreeNode *root;
-
 public:
-    TreeNode();
-    void insertValue();
+    TreeNode<ItemType> *root=new TreeNode<ItemType>;
+    
+    DataStructure();
+    void insertValue(ItemType,ItemType);
     void deleteItem();
     void searchItem();
     void printGraphically();

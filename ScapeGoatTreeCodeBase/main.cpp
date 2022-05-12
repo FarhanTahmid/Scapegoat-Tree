@@ -55,7 +55,8 @@ int main()
             int *y1=&y;
             
             TreeNode<int> *node=new TreeNode<int>(5,10);
-            cout<<node->getKey();
+            TreeNode<char> *node2=new TreeNode<char>('ab','cd');
+            cout<<node2->getKey();
             cout<<node->getValue();
             break;
         }
