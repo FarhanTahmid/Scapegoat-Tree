@@ -54,8 +54,9 @@ int main()
             int *x1=&x;
             int *y1=&y;
             
-            TreeNode<int> *node=new TreeNode<int>(&x1,&y1);
+            TreeNode<int> *node=new TreeNode<int>(5,10);
             cout<<node->getKey();
+            cout<<node->getValue();
             break;
         }
         case 2:

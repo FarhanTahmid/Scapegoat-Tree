@@ -6,8 +6,8 @@ template<typename ItemType>
 class TreeNode
 {
 private:
-    ItemType *data;
-    ItemType *key;
+    ItemType data;
+    ItemType key;
     
 
 public:
@@ -15,11 +15,11 @@ public:
     TreeNode *right;
     TreeNode *parent;
     TreeNode();
-    TreeNode(ItemType&,ItemType&);
+    TreeNode(ItemType,ItemType);
     ItemType getKey();
     ItemType getValue();
-    void setKey(ItemType&);
-    void setValue(ItemType&);
+    void setKey(ItemType);
+    void setValue(ItemType);
     void printValue(TreeNode*);
 };
 

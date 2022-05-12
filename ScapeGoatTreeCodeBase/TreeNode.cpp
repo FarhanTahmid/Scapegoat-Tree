@@ -10,7 +10,7 @@ TreeNode<ItemType>::TreeNode(){
     right=NULL;
 }
 template<typename ItemType>
-TreeNode<ItemType>::TreeNode(ItemType& k,ItemType& v){
+TreeNode<ItemType>::TreeNode(ItemType k,ItemType v){
     setKey(k);
     setValue(v);
     left=NULL;
@@ -25,11 +25,11 @@ ItemType TreeNode<ItemType>::getValue(){
     return this->data;
 }
 template<typename ItemType>
-void TreeNode<ItemType>::setKey(ItemType& k){
+void TreeNode<ItemType>::setKey(ItemType k){
     this->key=k;
 }
 template<typename ItemType>
-void TreeNode<ItemType>::setValue(ItemType& v){
+void TreeNode<ItemType>::setValue(ItemType v){
     this->data=v;
 }
 template<typename ItemType>
