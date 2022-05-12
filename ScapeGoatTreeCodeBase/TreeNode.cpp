@@ -5,11 +5,12 @@ using namespace std;
 template<typename ItemType>
 TreeNode<ItemType>::TreeNode(){
     setKey(NULL);
+    setValue(NULL);
     left=NULL;
     right=NULL;
 }
 template<typename ItemType>
-TreeNode<ItemType>::TreeNode(ItemType k,ItemType v){
+TreeNode<ItemType>::TreeNode(ItemType& k,ItemType& v){
     setKey(k);
     setValue(v);
     left=NULL;

@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1652368239 source:g:\codes\project-scapegoat tree\scapegoattreecodebase\main.cpp
+	<iostream>
+	"TreeNode.cpp"
+
+1652368358 g:\codes\project-scapegoat tree\scapegoattreecodebase\treenode.cpp
+	"TreeNode.h"
+	<iostream>
+
+1652368287 g:\codes\project-scapegoat tree\scapegoattreecodebase\treenode.h
+
