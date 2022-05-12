@@ -2,7 +2,7 @@
 #define TREENODE_H_INCLUDED
 
 
-template<class ItemType>
+template<typename ItemType>
 class TreeNode
 {
 private:

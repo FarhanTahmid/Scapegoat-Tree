@@ -48,11 +48,11 @@ int main()
             cout<<"You are in the insert Node Operation!"<<endl;
             cout<<endl;
             //cout<<"Enter how many values you want to enter in the BST:";
-            TreeNode<int> *node=new TreeNode<int>();
+            TreeNode<int> node=TreeNode<int>();
             int x;
             cin>>x;
-            node->setKey(x);
-            cout<<node->getKey();
+            node.setKey(x);
+            //cout<<node->getKey();
             break;
         }
         case 2:

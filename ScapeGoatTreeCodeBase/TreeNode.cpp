@@ -2,30 +2,30 @@
 #include<iostream>
 using namespace std;
 
-template<class ItemType>
+template<typename ItemType>
 TreeNode<ItemType>::TreeNode(){
     key=NULL;
     left=NULL;
     right=NULL;
 }
-template<class ItemType>
+template<typename ItemType>
 TreeNode<ItemType>::TreeNode(int k,int v){
-    this->key=k;
-    this->data=v;
+    key=k;
+    data=v;
 }
-template<class ItemType>
+template<typename ItemType>
 ItemType TreeNode<ItemType>::getKey(){
-    return this->key;
+    cout<<this->key;
 }
-template<class ItemType>
+template<typename ItemType>
 ItemType TreeNode<ItemType>::getValue(){
     return this->data;
 }
-template<class ItemType>
+template<typename ItemType>
 void TreeNode<ItemType>::setKey(ItemType k){
-    this->key=k;
+    key=k;
 }
-template<class ItemType>
+template<typename ItemType>
 void TreeNode<ItemType>::setValue(ItemType v){
-    this->data=v;
+    data=v;
 }
