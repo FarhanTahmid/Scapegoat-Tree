@@ -22,10 +22,14 @@ ItemType TreeNode<ItemType>::getValue(){
     return this->data;
 }
 template<typename ItemType>
-void TreeNode<ItemType>::setKey(ItemType k){
+void TreeNode<ItemType>::setKey(int k){
     key=k;
 }
 template<typename ItemType>
-void TreeNode<ItemType>::setValue(ItemType v){
+void TreeNode<ItemType>::setValue(int v){
     data=v;
+}
+template<typename ItemType>
+void TreeNode<ItemType>::printValue(TreeNode *r){
+    //return 0;
 }

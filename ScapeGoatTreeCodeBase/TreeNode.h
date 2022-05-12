@@ -17,8 +17,9 @@ public:
     TreeNode(int key,int value);
     ItemType getKey();
     ItemType getValue();
-    void setKey(ItemType k);
-    void setValue(ItemType v);
+    void setKey(int );
+    void setValue(int);
+    void printValue(TreeNode*);
 };
 
 #endif //TREENODE_H_INCLUDED
