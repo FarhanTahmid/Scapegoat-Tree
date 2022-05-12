@@ -8,17 +8,18 @@ class TreeNode
 private:
     ItemType data;
     TreeNode *key;
+    
+
+public:
     TreeNode *left;
     TreeNode *right;
     TreeNode *parent;
-
-public:
     TreeNode();
-    TreeNode(int key,int value);
+    TreeNode(ItemType ,ItemType);
     ItemType getKey();
     ItemType getValue();
-    void setKey(int );
-    void setValue(int);
+    void setKey(ItemType&);
+    void setValue(ItemType&);
     void printValue(TreeNode*);
 };
 
