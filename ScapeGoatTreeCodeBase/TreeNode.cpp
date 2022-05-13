@@ -2,37 +2,32 @@
 #include<iostream>
 using namespace std;
 
-template<typename ItemType>
-TreeNode<ItemType>::TreeNode(){
+TreeNode::TreeNode(){
     setKey(0);
-    setValue(0);
+    setValue(0.0);
     left=NULL;
     right=NULL;
 }
-template<typename ItemType>
-TreeNode<ItemType>::TreeNode(ItemType k,ItemType v){
+
+TreeNode::TreeNode(int k,double v){
     setKey(k);
     setValue(v);
     left=NULL;
     right=NULL;
 }
-template<typename ItemType>
-ItemType TreeNode<ItemType>::getKey(){
+
+int TreeNode::getKey(){
     return this->key;
 }
-template<typename ItemType>
-ItemType TreeNode<ItemType>::getValue(){
+
+double TreeNode::getValue(){
     return this->data;
 }
-template<typename ItemType>
-void TreeNode<ItemType>::setKey(ItemType k){
+
+void TreeNode::setKey(int k){
     this->key=k;
 }
-template<typename ItemType>
-void TreeNode<ItemType>::setValue(ItemType v){
+
+void TreeNode::setValue(double v){
     this->data=v;
-}
-template<typename ItemType>
-void TreeNode<ItemType>::printValue(TreeNode *r){
-    //return 0;
 }

@@ -2,27 +2,26 @@
 #define DATASTRUCTURE_H_INCLUDED
 #include "TreeNode.cpp"
 #include <list>
-template <typename ItemType>
 
 class DataStructure
 {
 public:
-    TreeNode<ItemType> *root=new TreeNode<ItemType>;
+    TreeNode *root=new TreeNode();
     int n; //number of items in the data structure
-    int q; //overestimate of n
+    int q=0; //overestimate of n
     DataStructure();
     static int const log32(int);
     bool isEmpty();
-    int size1(TreeNode<ItemType>*);
+    int size1(TreeNode*);
     int sizeofTree();
-    int findDepthWhileAdding(TreeNode<ItemType>*);
-    TreeNode<ItemType> buildBalancedTree(TreeNode<ItemType>**,int,int);
-    int storeInArray(TreeNode<ItemType>*,TreeNode<ItemType[]>*,int);
-    void rebuildTree(TreeNode<ItemType>*);
-    bool insertValue(ItemType,ItemType);
+    int findDepthWhileAdding(TreeNode*);
+    TreeNode* buildBalancedTree(TreeNode**,int,int);
+    int storeInArray(TreeNode*,TreeNode*[],int);
+    void rebuildTree(TreeNode*);
+    bool insertValue(int,double);
     void deleteItem();
     void searchItem();
-    void printGraphically(TreeNode<ItemType>*,int);
+    void printGraphically(TreeNode*,int);
     void preOrderTraversal();
     void inOrderTraversal();
     void postOrderTraversal();

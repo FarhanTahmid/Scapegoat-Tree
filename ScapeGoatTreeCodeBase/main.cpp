@@ -7,7 +7,7 @@ int main()
 {
 
     int option;
-    DataStructure<double> *scapeGoatTree=new DataStructure<double>();
+    DataStructure *scapeGoatTree=new DataStructure();
     //DataStructure<DOUB> *scapeGoatTree=new DataStructure<int>();
     cout<<endl;
     cout<<endl;
@@ -34,7 +34,7 @@ int main()
         cout<<endl;
         cout<<"Enter your choice:";
         cin>>option;
-        TreeNode<double>* newNode=new TreeNode<double>();
+        TreeNode* newNode=new TreeNode();
         switch (option)
         {
 
@@ -60,7 +60,7 @@ int main()
                 scapeGoatTree->insertValue(key,value);
                 numberOfInserts--;
             }
-            cout<<scapeGoatTree->q<<" "<<scapeGoatTree->n<<endl;
+            //cout<<scapeGoatTree->q<<" "<<scapeGoatTree->n<<endl;
             cout<<endl;
             break;
         }
@@ -83,7 +83,7 @@ int main()
             cout<<endl;
             cout<<"Printing BST Values"<<endl;
             scapeGoatTree->printGraphically(scapeGoatTree->root,4);
-            cout<<scapeGoatTree->root;
+            //cout<<scapeGoatTree->root;
             break;
         }
 
