@@ -82,20 +82,16 @@ DataStructure<ItemType>::findDepthWhileAdding(TreeNode<ItemType>& node){
             
 }
 template<typename ItemType>
-TreeNode* 
-DataStructure<ItemType>::buildBalancedTree(TreeNode<ItemType>&& tree,int i,int over){
-
+TreeNode<ItemType>* 
+DataStructure<ItemType>::buildBalancedTree(TreeNode<ItemType> &&tree,int i,int over){
+    if(over==0){
+        return NULL;
+    }
+    int midValue=over/2;
+    tree[i+midValue]->left=buildBalancedTree(tree,i,midValue);
+    
 }
 
-template<typename ItemType>
-template<typename ItemType>
-template<typename ItemType>
-
-
-
-
 // template<typename ItemType>
-// void 
-// DataStructure<ItemType>::insertValue(ItemType,ItemType){
-    
-// 
+// template<typename ItemType>
+// template<typename ItemType>
