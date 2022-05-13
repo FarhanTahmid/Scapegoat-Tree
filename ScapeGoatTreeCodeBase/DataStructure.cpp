@@ -22,7 +22,7 @@ DataStructure<ItemType>::size1(TreeNode<ItemType>* tree){
     if(tree==NULL){
         return 0;
     }else{
-        int size=0;
+        int size=1;
         size+=size1(tree->left);
         size+=size1(tree->right);
         return size;
@@ -43,53 +43,65 @@ DataStructure<ItemType>::log32(int number){
 }
 template<typename ItemType>
 int
-DataStructure<ItemType>::findDepthWhileAdding(TreeNode<ItemType>* node){
-    TreeNode<ItemType>*temp=root;
-    if(temp==NULL){
-        root=temp;
-        n++;
-        q++;
-        return 0;
-    }
-    bool complete=false;
-    int depth=0;
-    do{
-        if(node->getValue()<temp->getValue()){
-            if(temp->left==NULL){
-                temp->left==node;
-                node->parent=temp;
-                complete=true;
-            }else{
-                temp=temp->left;
+DataStructure<ItemType>::findDepthWhileAdding(TreeNode<ItemType>* u){
+    TreeNode<ItemType> *w = root;
+            if (w == NULL)
+            {
+                root = u;
+                n++;
+                q++;
+                return 0;
             }
-        }else if(node->getValue()>temp->getValue()){
-            if(temp->right==NULL){
-                temp->right=node;
-                node->parent=temp;
-                complete=true;
-            }else{
-                temp=temp->right;
+            bool done = false;
+            int d = 0;
+            do
+            {
+                if (u->getValue() < w->getValue())
+                {
+                    if (w->left == NULL)
+                    {
+                        w->left = u;
+                        u->parent = w;
+                        done = true;
+                    }
+                    else
+                    {
+                        w = w->left;
+                    }
                 }
-            }else{
-                return -1;
+                else if (u->getValue() > w->getValue())
+                {
+                    if (w->right == NULL)
+                    {
+                        w->right = u;
+                        u->parent = w;
+                        done = true;
+                    }
+                    else
+                    {
+                        w = w->right;
+                    }
+                }
+                else
+                    return -1;
+                d++;
             }
-            depth++;
-
-    }
-    while(!complete);
-    q++;
-    n++;
-    cout<<depth;
-    return depth;
-
+            while (!done);
+            n++;
+            q++;
+            return d;
 }
 template<typename ItemType>
 TreeNode<ItemType>
-DataStructure<ItemType>::buildBalancedTree(TreeNode<ItemType> &&tree,int i,int over){
+DataStructure<ItemType>::buildBalancedTree(TreeNode<ItemType> **tree,int i,int over){
+    cout<<"inside buildBalanced";
     if(over==0){
+        cout<<"Inside first if"<<endl;
         return NULL;
     }
+    cout<<"outside first if build balanced"<<endl;
     int midValue=over/2;
+    cout<<"Mid Value"<<midValue;
     tree[i+midValue]->left=buildBalancedTree(tree,i,midValue);
     if(tree[i+midValue]->left!=NULL){
         tree[i+midValue]->left->parent=tree[i+midValue];
@@ -98,12 +110,14 @@ DataStructure<ItemType>::buildBalancedTree(TreeNode<ItemType> &&tree,int i,int o
     if(tree[i+midValue]->right!=NULL){
         tree[i+midValue]->right->parent=tree[i+midValue];
     }
+    cout<<"tree[i+midvalue]"<<tree[i+midValue]<<endl;
     return tree[i+midValue];
 }
 
 template<typename ItemType>
 int
-DataStructure<ItemType>::storeInArray(TreeNode<ItemType>& node,TreeNode<ItemType[]>& datas,int i){
+DataStructure<ItemType>::storeInArray(TreeNode<ItemType>* node,TreeNode<ItemType[]>* datas,int i){
+    cout <<"INSIDE store in array"<<endl;
     if(node==NULL){
         return i;
     }
@@ -113,21 +127,26 @@ DataStructure<ItemType>::storeInArray(TreeNode<ItemType>& node,TreeNode<ItemType
 }
 template<typename ItemType>
 void
-DataStructure<ItemType>::rebuildTree(TreeNode<ItemType>& tree){
-    int nodeSize=size(tree);
-    TreeNode<ItemType> *p=tree->parent;
-    TreeNode<ItemType> **a=new TreeNode<ItemType>* [nodeSize];
-    storeInArray(tree,a,0);
-    if(p==NULL){
-        root=buildBalancedTree(a,0,nodeSize);
-        root->parent=NULL;
-    }else if(p->right==tree){
-        p->right=buildBalancedTree(a,0,nodeSize);
-        p->right->parent=p;
-    }else{
-        p->left=buildBalancedTree(a,0,nodeSize);
-        p->left->parent=p;
-    }
+DataStructure<ItemType>::rebuildTree(TreeNode<ItemType>* u){
+    int ns = size1(u);
+            TreeNode<ItemType> *p = u->parent;
+            TreeNode<ItemType[]> **a = new TreeNode<ItemType[]> [ns];
+            storeInArray(u, a, 0);
+            if (p == NULL)
+            {
+                root = buildBalancedTree(a, 0, ns);
+                root->parent = NULL;
+            }
+            else if (p->right == u)
+            {
+                p->right = buildBalancedTree(a, 0, ns);
+                p->right->parent = p;
+            }
+            else
+            {
+                p->left = buildBalancedTree(a, 0, ns);
+                p->left->parent = p;
+            }
  }
 template<typename ItemType>
 bool
@@ -140,6 +159,7 @@ DataStructure<ItemType>::insertValue(ItemType key,ItemType data){
         while(3*size1(temp)<=2*size1(temp->parent)){
             temp=temp->parent;
         }
+        rebuildTree(temp->parent);
     }
     return depth>=0;
 }
@@ -148,7 +168,7 @@ void
 DataStructure<ItemType>::printGraphically(TreeNode<ItemType>* tree,int space){
     if(tree==NULL)   //Base Case
         {
-            cout<<"Insert hoy nai"<<endl;
+
             return;
         }
         space+=SPACE; //Increase distance between levels

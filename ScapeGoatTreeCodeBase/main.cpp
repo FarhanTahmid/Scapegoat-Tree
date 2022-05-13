@@ -7,8 +7,8 @@ int main()
 {
 
     int option;
-    DataStructure<int> *scapeGoatTree=new DataStructure<int>();
-    //TreeNode<int>* newNode=new TreeNode<int>();
+    DataStructure<double> *scapeGoatTree=new DataStructure<double>();
+    //DataStructure<DOUB> *scapeGoatTree=new DataStructure<int>();
     cout<<endl;
     cout<<endl;
     cout<<"Welcome to Scapegoat Tree Project!"<<endl;
@@ -34,7 +34,7 @@ int main()
         cout<<endl;
         cout<<"Enter your choice:";
         cin>>option;
-
+        TreeNode<double>* newNode=new TreeNode<double>();
         switch (option)
         {
 
@@ -52,8 +52,8 @@ int main()
             int numberOfInserts;
             cin>>numberOfInserts;
             cout<<"Enter keyValue and data: "<<endl;;
-            int key;
-            int value;
+            double key;
+            double value;
             while(numberOfInserts!=0){
                 cout<<"[Key] [Value]: ";cin>>key>>value;
                 cout<<endl;
@@ -83,6 +83,7 @@ int main()
             cout<<endl;
             cout<<"Printing BST Values"<<endl;
             scapeGoatTree->printGraphically(scapeGoatTree->root,4);
+            cout<<scapeGoatTree->root;
             break;
         }
 

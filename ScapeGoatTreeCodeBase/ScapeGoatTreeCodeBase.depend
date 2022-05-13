@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1652460560 source:g:\codes\project-scapegoat tree\scapegoattreecodebase\main.cpp
+1652469681 source:g:\codes\project-scapegoat tree\scapegoattreecodebase\main.cpp
 	<iostream>
 	"DataStructure.cpp"
 
@@ -9,17 +9,23 @@
 
 1652370671 g:\codes\project-scapegoat tree\scapegoattreecodebase\treenode.h
 
-1652460615 g:\codes\project-scapegoat tree\scapegoattreecodebase\datastructure.cpp
+1652471104 g:\codes\project-scapegoat tree\scapegoattreecodebase\datastructure.cpp
 	<iostream>
 	"DataStructure.h"
 	<list>
 	<math.h>
 
-1652460034 g:\codes\project-scapegoat tree\scapegoattreecodebase\datastructure.h
+1652467997 g:\codes\project-scapegoat tree\scapegoattreecodebase\datastructure.h
 	"TreeNode.cpp"
 	<list>
 
 1652460221 source:g:\codes\project-scapegoat tree\scapegoattreecodebase\treenode.cpp
 	"TreeNode.h"
 	<iostream>
+
+1652470823 source:g:\codes\project-scapegoat tree\scapegoattreecodebase\datastructure.cpp
+	<iostream>
+	"DataStructure.h"
+	<list>
+	<math.h>
 
