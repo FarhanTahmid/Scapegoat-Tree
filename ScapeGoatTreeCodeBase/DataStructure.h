@@ -13,22 +13,22 @@ public:
     DataStructure();
     static int const log32(int);
     bool isEmpty();
-    int size(TreeNode<ItemType>&);
+    int size1(TreeNode<ItemType>*);
     int sizeofTree();
-    int findDepthWhileAdding(TreeNode<ItemType>&);
-    TreeNode<ItemType>* buildBalancedTree(TreeNode<ItemType>&&,int,int); 
+    int findDepthWhileAdding(TreeNode<ItemType>*);
+    TreeNode<ItemType> buildBalancedTree(TreeNode<ItemType>&&,int,int);
     int storeInArray(TreeNode<ItemType>&,TreeNode<ItemType[]>&,int);
     void rebuildTree(TreeNode<ItemType>&);
     bool insertValue(ItemType,ItemType);
     void deleteItem();
     void searchItem();
-    void printGraphically(TreeNode<ItemType>&,int);
+    void printGraphically(TreeNode<ItemType>*,int);
     void preOrderTraversal();
     void inOrderTraversal();
     void postOrderTraversal();
     void bfsTraversal();
     void heightOfScapeGoatTree();
-    
+
 };
 
 #endif //DATASTRUCTURE_H_INCLUDED

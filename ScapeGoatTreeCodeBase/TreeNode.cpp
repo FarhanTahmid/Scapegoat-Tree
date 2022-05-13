@@ -4,8 +4,8 @@ using namespace std;
 
 template<typename ItemType>
 TreeNode<ItemType>::TreeNode(){
-    setKey(NULL);
-    setValue(NULL);
+    setKey(0);
+    setValue(0);
     left=NULL;
     right=NULL;
 }

@@ -1,5 +1,4 @@
 #include<iostream>
-#include "TreeNode.cpp"
 #include "DataStructure.h"
 #include<list>
 #include<math.h>
@@ -19,13 +18,13 @@ DataStructure<ItemType>::isEmpty(){
 }
 template<typename ItemType>
 int //count number of nodes of a parent
-DataStructure<ItemType>::size(TreeNode<ItemType>& tree){
+DataStructure<ItemType>::size1(TreeNode<ItemType>* tree){
     if(tree==NULL){
         return 0;
     }else{
-        int size;
-        size+=size(tree->left);
-        size+=size(tree.right);
+        int size=0;
+        size+=size1(tree->left);
+        size+=size1(tree->right);
         return size;
     }
 }
@@ -40,11 +39,11 @@ template<typename ItemType>
 const int
 DataStructure<ItemType>::log32(int number){
     double const log23=2.4663034623764317;
-    return (int)ceil(log23*log(q));
+    return (int)ceil(log23*log(number));
 }
 template<typename ItemType>
 int
-DataStructure<ItemType>::findDepthWhileAdding(TreeNode<ItemType>& node){
+DataStructure<ItemType>::findDepthWhileAdding(TreeNode<ItemType>* node){
     TreeNode<ItemType>*temp=root;
     if(temp==NULL){
         root=temp;
@@ -74,16 +73,18 @@ DataStructure<ItemType>::findDepthWhileAdding(TreeNode<ItemType>& node){
             }else{
                 return -1;
             }
-            depth++;                     
-        
-    }while(!complete);
-    n++;
+            depth++;
+
+    }
+    while(!complete);
     q++;
-    return depth;        
-            
+    n++;
+    cout<<depth;
+    return depth;
+
 }
 template<typename ItemType>
-TreeNode<ItemType>* 
+TreeNode<ItemType>
 DataStructure<ItemType>::buildBalancedTree(TreeNode<ItemType> &&tree,int i,int over){
     if(over==0){
         return NULL;
@@ -129,33 +130,34 @@ DataStructure<ItemType>::rebuildTree(TreeNode<ItemType>& tree){
     }
  }
 template<typename ItemType>
-bool 
+bool
 DataStructure<ItemType>::insertValue(ItemType key,ItemType data){
-    TreeNode<ItemType>* node=new TreeNode(key,data);
-    int depth=findDepthWhileAdding(node);
+    TreeNode<ItemType>* node1=new TreeNode<ItemType>(key,data);
+    int depth=findDepthWhileAdding(node1);
     if(depth>log32(q)){
         //finding scapegoat if depth is exceeded
-        TreeNode<ItemType> *temp=node->parent;\
-        while(3*size(temp)<=2*size(temp->parent)){
+        TreeNode<ItemType>* temp=node1->parent;\
+        while(3*size1(temp)<=2*size1(temp->parent)){
             temp=temp->parent;
         }
-        return d>=0;
     }
+    return depth>=0;
 }
 template<typename ItemType>
 void
-DataStructure<ItemType>::printGraphically(TreeNode<ItemType>& tree,int space){
+DataStructure<ItemType>::printGraphically(TreeNode<ItemType>* tree,int space){
     if(tree==NULL)   //Base Case
         {
+            cout<<"Insert hoy nai"<<endl;
             return;
         }
         space+=SPACE; //Increase distance between levels
-        print2D(tree->right,space); //Process right child first
+        printGraphically(tree->right,space); //Process right child first
         cout<<endl;
         for(int i=SPACE; i<space; i++) //print current node after space count
         {
             cout<<" ";
         }
-        cout<<tree->value<<"\n";
-        print2D(tree->left,space); //Process left child
+        cout<<tree->getValue()<<"\n";
+        printGraphically(tree->left,space); //Process left child
 }

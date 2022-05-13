@@ -1,5 +1,4 @@
 #include <iostream>
-#include "TreeNode.cpp"
 #include "DataStructure.cpp"
 
 using namespace std;
@@ -8,15 +7,15 @@ int main()
 {
 
     int option;
-    DataStructure<int> *scapeGoatTree;
-    TreeNode<int>* newNode=new TreeNode<int>();
+    DataStructure<int> *scapeGoatTree=new DataStructure<int>();
+    //TreeNode<int>* newNode=new TreeNode<int>();
     cout<<endl;
     cout<<endl;
     cout<<"Welcome to Scapegoat Tree Project!"<<endl;
-        
+
     do
     {
-        
+
         cout<<endl;
         cout<<endl;
         cout<<"What options you want to perform?"<<endl;
@@ -55,11 +54,13 @@ int main()
             cout<<"Enter keyValue and data: "<<endl;;
             int key;
             int value;
-            for(int i=0;i<numberOfInserts;i++){
+            while(numberOfInserts!=0){
                 cout<<"[Key] [Value]: ";cin>>key>>value;
                 cout<<endl;
                 scapeGoatTree->insertValue(key,value);
+                numberOfInserts--;
             }
+            cout<<scapeGoatTree->q<<" "<<scapeGoatTree->n<<endl;
             cout<<endl;
             break;
         }
@@ -67,14 +68,14 @@ int main()
         {
             cout<<endl;
             cout<<"You are in the search Node Operation!"<<endl;
-            
+
             break;
         }
         case 3:
         {
             cout<<endl;
             cout<<"You are in the delete Node Operation!"<<endl;
-            
+
             break;
         }
         case 4:
@@ -89,28 +90,28 @@ int main()
         {
             cout<<endl;
             cout<<"The PreOrder Traversal is: "<<endl;
-            
+
             break;
         }
         case 6:
         {
             cout<<endl;
             cout<<"The InOrder Traversal is: "<<endl;
-            
+
             break;
         }
         case 7:
         {
             cout<<endl;
             cout<<"The PostOrder Traversal is: "<<endl;
-            
+
             break;
         }
         case 8:
         {
             cout<<endl;
             cout<<"The BFS Traversal is: "<<endl;
-            
+
             break;
         }
         case 9:
