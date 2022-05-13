@@ -17,10 +17,12 @@ public:
     int sizeofTree();
     int findDepthWhileAdding(TreeNode<ItemType>&);
     TreeNode<ItemType>* buildBalancedTree(TreeNode<ItemType>&&,int,int); 
-    void insertValue(ItemType,ItemType);
+    int storeInArray(TreeNode<ItemType>&,TreeNode<ItemType[]>&,int);
+    void rebuildTree(TreeNode<ItemType>&);
+    bool insertValue(ItemType,ItemType);
     void deleteItem();
     void searchItem();
-    void printGraphically();
+    void printGraphically(TreeNode<ItemType>&,int);
     void preOrderTraversal();
     void inOrderTraversal();
     void postOrderTraversal();

@@ -1,5 +1,6 @@
 #include <iostream>
 #include "TreeNode.cpp"
+#include "DataStructure.cpp"
 
 using namespace std;
 
@@ -7,7 +8,8 @@ int main()
 {
 
     int option;
-
+    DataStructure<int> *scapeGoatTree;
+    TreeNode<int>* newNode=new TreeNode<int>();
     cout<<endl;
     cout<<endl;
     cout<<"Welcome to Scapegoat Tree Project!"<<endl;
@@ -47,17 +49,18 @@ int main()
             cout<<endl;
             cout<<"You are in the insert Node Operation!"<<endl;
             cout<<endl;
-            //cout<<"Enter how many values you want to enter in the BST:";
-            int x=5;
-            int y=8;
-
-            int *x1=&x;
-            int *y1=&y;
-            
-            TreeNode<int> *node=new TreeNode<int>(5,10);
-            TreeNode<char> *node2=new TreeNode<char>('ab','cd');
-            cout<<node2->getKey();
-            cout<<node->getValue();
+            cout<<"Enter how many values you want to enter in the BST:"<<endl;
+            int numberOfInserts;
+            cin>>numberOfInserts;
+            cout<<"Enter keyValue and data: "<<endl;;
+            int key;
+            int value;
+            for(int i=0;i<numberOfInserts;i++){
+                cout<<"[Key] [Value]: ";cin>>key>>value;
+                cout<<endl;
+                scapeGoatTree->insertValue(key,value);
+            }
+            cout<<endl;
             break;
         }
         case 2:
@@ -78,7 +81,7 @@ int main()
         {
             cout<<endl;
             cout<<"Printing BST Values"<<endl;
-            
+            scapeGoatTree->printGraphically(scapeGoatTree->root,4);
             break;
         }
 
