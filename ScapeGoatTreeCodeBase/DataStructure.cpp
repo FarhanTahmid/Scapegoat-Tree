@@ -82,6 +82,11 @@ DataStructure<ItemType>::findDepthWhileAdding(TreeNode<ItemType>& node){
             
 }
 template<typename ItemType>
+TreeNode* 
+DataStructure<ItemType>::buildBalancedTree(TreeNode<ItemType>&& tree,int i,int over){
+
+}
+
 template<typename ItemType>
 template<typename ItemType>
 template<typename ItemType>

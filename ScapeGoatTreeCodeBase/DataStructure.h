@@ -16,6 +16,7 @@ public:
     int size(TreeNode<ItemType>&);
     int sizeofTree();
     int findDepthWhileAdding(TreeNode<ItemType>&);
+    TreeNode* buildBalancedTree(TreeNode<ItemType>&&,int,int); 
     void insertValue(ItemType,ItemType);
     void deleteItem();
     void searchItem();
