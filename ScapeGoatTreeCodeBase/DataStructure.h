@@ -22,11 +22,13 @@ public:
     void deleteItem();
     void searchItem();
     void printGraphically(TreeNode*,int);
-    void preOrderTraversal();
-    void inOrderTraversal();
-    void postOrderTraversal();
-    void bfsTraversal();
-    void heightOfScapeGoatTree();
+    void preOrderTraversal(TreeNode*);
+    void inOrderTraversal(TreeNode*);
+    void postOrderTraversal(TreeNode*);
+    void breadthFirstTraversal(TreeNode*);
+    int heightOfScapeGoatTree(TreeNode*);
+    void printLevel(TreeNode*,int);
+    TreeNode *searchValue(double);
 
 };
 

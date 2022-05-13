@@ -39,58 +39,57 @@ DataStructure  ::sizeofTree(){
 const int
 DataStructure::log32(int number){
     double const log23=2.4663034623764317;
-    cout<<"log32 ans: "<<(int)ceil(log23*log(number))<<endl;
-    cout<<"Q here : "<<number<<endl;
+    
     return (int)floor(log23*log(number));
 }
  
-int DataStructure::findDepthWhileAdding(TreeNode  * u){
-    TreeNode   *w = root;
-            if (w == NULL)
+int DataStructure::findDepthWhileAdding(TreeNode* node){
+    TreeNode *temp = root;
+            if (temp == NULL)
             {
-                root = u;
+                root = node;
                 n++;
                 q++;
                 return 0;
             }
-            bool done = false;
-            int d = 0;
+            bool complete = false;
+            int depth=0;
             do
             {
-                if (u->getValue() < w->getValue())
+                if (node->getValue() < temp->getValue())
                 {
-                    if (w->left == NULL)
+                    if (temp->left == NULL)
                     {
-                        w->left = u;
-                        u->parent = w;
-                        done = true;
+                        temp->left = node;
+                        node->parent = temp;
+                        complete = true;
                     }
                     else
                     {
-                        w = w->left;
+                        temp = temp->left;
                     }
                 }
-                else if (u->getValue() > w->getValue())
+                else if (node->getValue() > temp->getValue())
                 {
-                    if (w->right == NULL)
+                    if (temp->right == NULL)
                     {
-                        w->right = u;
-                        u->parent = w;
-                        done = true;
+                        temp->right = node;
+                        node->parent = temp;
+                        complete = true;
                     }
                     else
                     {
-                        w = w->right;
+                        temp= temp->right;
                     }
                 }
                 else
                     return -1;
-                d++;
+                depth++;
             }
-            while (!done);
+            while (!complete);
             n++;
             q++;
-            return d;
+            return depth;
 }
  
 TreeNode* DataStructure::buildBalancedTree(TreeNode **tree,int i,int over){
@@ -116,7 +115,7 @@ TreeNode* DataStructure::buildBalancedTree(TreeNode **tree,int i,int over){
  
 int
 DataStructure  ::storeInArray(TreeNode  * node,TreeNode* datas[],int i){
-    cout <<"INSIDE store in array"<<endl;
+    
     if(node==NULL){
         return i;
     }
@@ -128,7 +127,7 @@ DataStructure  ::storeInArray(TreeNode  * node,TreeNode* datas[],int i){
  
 void
 DataStructure  ::rebuildTree(TreeNode* tree){
-    cout<<"inside rebuild tree"<<endl;
+    
     int nodeSize=size1(tree);
     TreeNode   *p=tree->parent;
     TreeNode   **a=new TreeNode*[nodeSize];
@@ -159,7 +158,7 @@ DataStructure  ::insertValue( int key,  double data){
         while(3*size1(temp)<=2*size1(temp->parent)){
             temp=temp->parent;
         }
-        cout<<"ScapeGoat Found: "<<temp->getValue()<<endl;;
+        cout<<"ScapeGoat Found: "<<temp->parent->getValue()<<endl;;
         rebuildTree(temp->parent);
     }
     return depth>=0;
@@ -180,3 +179,111 @@ DataStructure  ::printGraphically(TreeNode  * tree,int space){
         cout<<tree->getValue()<<"\n";
         printGraphically(tree->left,space); //Process left child
 }
+TreeNode*
+DataStructure::searchValue(double val){
+    if(root==NULL)
+        {
+            return NULL;
+        }
+        else
+        {
+            TreeNode *temp=root;
+            while(temp!=NULL)
+            {
+                if(val==temp->getValue())
+                {
+                    return temp;
+                    break;
+                }
+                else if(val<temp->getValue())
+                {
+                    temp=temp->left;
+                }
+                else
+                {
+                    temp=temp->right;
+                }
+            }
+            return NULL;
+        }
+}
+void 
+DataStructure::preOrderTraversal(TreeNode *tree)
+    {
+        if(tree==NULL)
+        {
+            return;
+        }
+        cout<<tree->getValue()<<" ";
+        preOrderTraversal(tree->left);
+        preOrderTraversal(tree->right);
+    }
+void
+DataStructure::inOrderTraversal(TreeNode *tree)
+    {
+        if (tree==NULL)
+        {
+            return;
+        }
+        inOrderTraversal(tree->left);
+        cout<<tree->getValue()<<" "; 
+        inOrderTraversal(tree->right);
+    }
+void
+DataStructure::postOrderTraversal(TreeNode *tree)
+    {
+        if(tree==NULL)
+        {
+            return;
+        }
+        postOrderTraversal(tree->left);
+        postOrderTraversal(tree->right);
+        cout<<tree->getValue()<<" ";
+    }
+int
+DataStructure::heightOfScapeGoatTree(TreeNode * tree)
+    {
+        if(tree==NULL)
+        {
+            return -1;
+        }
+        else
+        {
+            int leftHeight=heightOfScapeGoatTree(tree->left);
+            int rightHeight=heightOfScapeGoatTree(tree->right);
+            if(leftHeight>rightHeight)
+            {
+                return(leftHeight+1);
+            }
+            else
+            {
+                return(rightHeight+1);
+            }
+        }
+    }
+void
+DataStructure::breadthFirstTraversal(TreeNode *tree)
+    {
+        int height=heightOfScapeGoatTree(tree);
+        for(int i=0; i<=height; i++)
+        {
+            printLevel(tree,i);
+        }
+    }
+void
+DataStructure::printLevel(TreeNode *tree,int level)
+    {
+        if(tree==NULL)
+        {
+            return;
+        }
+        else if(level==0)
+        {
+            cout<<tree->getValue()<<" ";
+        }
+        else
+        {
+            printLevel(tree->left,level-1);
+            printLevel(tree->right,level-1);
+        }
+    }

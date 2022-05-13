@@ -35,6 +35,7 @@ int main()
         cout<<"Enter your choice:";
         cin>>option;
         TreeNode* newNode=new TreeNode();
+        int heightOfScapeGoatTree=0;
         switch (option)
         {
 
@@ -68,7 +69,19 @@ int main()
         {
             cout<<endl;
             cout<<"You are in the search Node Operation!"<<endl;
-
+            int searchValue;
+            cout<<"Enter a value to search: ";cin>>searchValue;cout<<endl;
+            newNode=scapeGoatTree->searchValue(searchValue);
+            if (scapeGoatTree->isEmpty()){
+                cout<<"Tree is Empty"<<endl;
+            }
+            else{
+                if(newNode!=NULL){
+                    cout<<"Found the value "<<searchValue<<" in the tree"<<endl;
+                }else{
+                    cout<<"Couldn't find the valeu "<<searchValue<<" int the tree"<<endl;
+            }
+        }
             break;
         }
         case 3:
@@ -91,34 +104,36 @@ int main()
         {
             cout<<endl;
             cout<<"The PreOrder Traversal is: "<<endl;
-
+            scapeGoatTree->preOrderTraversal(scapeGoatTree->root);
             break;
         }
         case 6:
         {
             cout<<endl;
             cout<<"The InOrder Traversal is: "<<endl;
-
+            scapeGoatTree->inOrderTraversal(scapeGoatTree->root);
             break;
         }
         case 7:
         {
             cout<<endl;
             cout<<"The PostOrder Traversal is: "<<endl;
-
+            scapeGoatTree->postOrderTraversal(scapeGoatTree->root);
             break;
         }
         case 8:
         {
             cout<<endl;
             cout<<"The BFS Traversal is: "<<endl;
-
+            scapeGoatTree->breadthFirstTraversal(scapeGoatTree->root);
             break;
         }
         case 9:
         {
             cout<<endl;
             cout<<"Finding the height of the tree...."<<endl;
+            heightOfScapeGoatTree=scapeGoatTree->heightOfScapeGoatTree(scapeGoatTree->root);
+            cout<<"Height of tree is: "<<heightOfScapeGoatTree<<endl;
             break;
         }
         case 10:
@@ -129,6 +144,7 @@ int main()
         }
         default:
             break;
+
         }
     }
     while(option!=0);
