@@ -19,7 +19,6 @@ public:
     int storeInArray(TreeNode*,TreeNode*[],int);
     void rebuildTree(TreeNode*);
     bool insertValue(int,double);
-    void deleteItem();
     void searchItem();
     void printGraphically(TreeNode*,int);
     void preOrderTraversal(TreeNode*);
@@ -29,7 +28,8 @@ public:
     int heightOfScapeGoatTree(TreeNode*);
     void printLevel(TreeNode*,int);
     TreeNode *searchValue(double);
-
+    TreeNode *deleteNode(TreeNode*,double);
+    TreeNode *minValueNode(TreeNode*);
 };
 
 #endif //DATASTRUCTURE_H_INCLUDED

@@ -271,8 +271,7 @@ DataStructure::breadthFirstTraversal(TreeNode *tree)
         }
     }
 void
-DataStructure::printLevel(TreeNode *tree,int level)
-    {
+DataStructure::printLevel(TreeNode *tree,int level){
         if(tree==NULL)
         {
             return;
@@ -286,4 +285,61 @@ DataStructure::printLevel(TreeNode *tree,int level)
             printLevel(tree->left,level-1);
             printLevel(tree->right,level-1);
         }
+}
+TreeNode*
+DataStructure::minValueNode(TreeNode *node)
+    {
+        TreeNode *current=node;
+        while(current->left != NULL)
+        {
+            current=current->left;
+        }
+        return current;
     }
+TreeNode*
+DataStructure::deleteNode(TreeNode *tree,double val){
+    TreeNode *temp2=new TreeNode();
+    if(tree==NULL)
+        {
+            return tree;
+        }
+        else if(val<tree->getValue())   //for if value is smaller go for left subtree
+        {
+            tree->left=deleteNode(tree->left,val);
+        }
+        else if(val>tree->getValue())   //for if value is larger go for right subtree
+        {
+            tree->right=deleteNode(tree->right,val);
+        }
+        else   //for if value matches
+        {
+            if(tree->left==NULL)  //to delete the node which has no child or only one right child
+            {
+                TreeNode *temp=tree->right;
+                delete tree;
+                temp2=temp;
+                return temp;
+            }
+            else if(tree->right==NULL)   //to delete the node which has only one left child
+            {
+                TreeNode *temp=tree->left;
+                delete tree;
+                temp2=temp;
+                return temp;
+            }
+            else   //to delete the node which has both right and left child
+            {
+                TreeNode *temp=minValueNode(tree->right);
+                tree->setValue(temp->getValue());
+                tree->right=deleteNode(tree->right,temp->getValue());
+            }
+            if(2*n<q){
+                rebuildTree(temp2);
+                q=n;
+            }
+        }
+            
+        return tree;
+}
+
+
