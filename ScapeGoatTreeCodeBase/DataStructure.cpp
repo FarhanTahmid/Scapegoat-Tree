@@ -136,33 +136,30 @@ DataStructure  ::rebuildTree(TreeNode* tree){
     if(p==NULL){
         root=buildBalancedTree(a,0,nodeSize);
         root->parent=NULL;
-        cout<<"inside rebuild tree if"<<endl;
+        
     }else if(p->right==tree){
         p->right=buildBalancedTree(a,0,nodeSize);
         p->right->parent=p;
-        cout<<"inside rebuild tree else if"<<endl;
+        
     }else{
         p->left=buildBalancedTree(a,0,nodeSize);
         p->left->parent=p;
-        cout<<"inside rebuild tree else"<<endl;
+        
     }
- }
+}
 
 bool
 DataStructure  ::insertValue( int key,  double data){
     TreeNode  * node1=new TreeNode  (key,data);
     int depth=findDepthWhileAdding(node1);
-    cout <<"depth outside the if condition "<<depth<<endl;
-    cout<<"Q in insertvlaue"<<q<<endl;
     if(depth>log32(q)){
-        cout<<"value of depth inside insertValue "<<depth<<endl;
         //finding scapegoat if depth is exceeded
-        cout<<"Inside the if loop"<<endl;
+        
         TreeNode* temp=node1->parent;
         while(3*size1(temp)<=2*size1(temp->parent)){
             temp=temp->parent;
         }
-        cout<<"ScapeGoat"<<temp->getValue();
+        cout<<"ScapeGoat Found: "<<temp->getValue()<<endl;;
         rebuildTree(temp->parent);
     }
     return depth>=0;
@@ -170,9 +167,7 @@ DataStructure  ::insertValue( int key,  double data){
  
 void
 DataStructure  ::printGraphically(TreeNode  * tree,int space){
-    if(tree==NULL)   //Base Case
-        {
-
+    if(tree==NULL){   //Base Case
             return;
         }
         space+=SPACE; //Increase distance between levels
