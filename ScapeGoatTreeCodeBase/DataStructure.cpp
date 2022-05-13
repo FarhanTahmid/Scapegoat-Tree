@@ -42,17 +42,55 @@ DataStructure<ItemType>::log32(int number){
     return (int)ceil(log23*log(q));
 }
 template<typename ItemType>
-template<typename ItemType>
-template<typename ItemType>
-template<typename ItemType>
-template<typename ItemType>
-
-
-
-
-template<typename ItemType>
-void 
-DataStructure<ItemType>::insertValue(ItemType,ItemType){
-    
+int
+DataStructure<ItemType>::findDepthWhileAdding(TreeNode<ItemType>& node){
+    TreeNode<ItemType>*temp=root;
+    if(temp==NULL){
+        root=temp;
+        n++;
+        q++;
+        return 0;
+    }
+    bool complete=false;
+    int depth=0;
+    do{
+        if(node->getValue()<temp->getValue()){
+            if(temp->left==NULL){
+                temp->left==node;
+                node->parent=temp;
+                complete=true;
+            }else{
+                temp=temp->left;
+            }
+        }else if(node->getValue()>temp->getValue()){
+            if(temp->right==NULL){
+                temp->right=node;
+                node->parent=temp;
+                complete=true;
+            }else{
+                temp=temp->right;
+                }
+            }else{
+                return -1;
+            }
+            depth++;                     
+        
+    }while(!complete);
+    n++;
+    q++;
+    return depth;        
+            
 }
+template<typename ItemType>
+template<typename ItemType>
+template<typename ItemType>
+template<typename ItemType>
 
+
+
+
+// template<typename ItemType>
+// void 
+// DataStructure<ItemType>::insertValue(ItemType,ItemType){
+    
+// 

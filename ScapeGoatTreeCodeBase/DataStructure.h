@@ -15,6 +15,7 @@ public:
     bool isEmpty();
     int size(TreeNode<ItemType>&);
     int sizeofTree();
+    int findDepthWhileAdding(TreeNode<ItemType>&);
     void insertValue(ItemType,ItemType);
     void deleteItem();
     void searchItem();
